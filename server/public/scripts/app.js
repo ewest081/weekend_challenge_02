@@ -40,7 +40,7 @@ function buttonMaker(){
 function logData(data){
     for(i=0; i<data.people.length; i++) {
 
-        $('#container').append('<div class="person"><ul><li class="person-name">Name: ' + data.people[i].name + '</li><li class="person-location">City: ' + data.people[i].location + '</li><li class="person-animal">Spirit Animal: ' + data.people[i].animal + '</li></ul></div>');
+        $('#container').children().append('<li><div class="person"><p class="person-name">Name: ' + data.people[i].name + '</p><p class="person-location">City: ' + data.people[i].location + '</p><p class="person-animal">Spirit Animal: ' + data.people[i].animal + '</p></div></li>');
 
     }
 }

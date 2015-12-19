@@ -36,25 +36,24 @@ body {
     /*margin: 10px;*/
     /*float: left;*/
     /*display: inline;*/
-}
+/*}*/
 
 /*below is the css to work with the demo carousel I found*/
 
-.person {
+#container {
     width: 480px;
     overflow:hidden;
 }
 
-.person ul {
+#container ul {
     width: 1920px;
     padding: 0;
     margin: 0;
 }
 
-.person ul li {
+#container ul li {
     width:480px;
     text-align: center;
-    height: 280px;
     list-style: none;
     float:	left;
 }
