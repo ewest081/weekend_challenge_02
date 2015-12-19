@@ -1,5 +1,4 @@
 body {
-    width: 80%;
     background-color: red;
     margin: 0 auto;
 }
@@ -25,6 +24,7 @@ body {
 .person, .title-container {
     background-color: white;
     padding: 5px;
+    width: 500px;
 }
 
 .title-container {
@@ -41,19 +41,22 @@ body {
 /*below is the css to work with the demo carousel I found*/
 
 #container {
-    width: 480px;
-    overflow:hidden;
+    margin: 0 auto;
+    width: 500px;
+    overflow: hidden;
+    height: 100px;
 }
 
 #container ul {
-    width: 1920px;
+    width: 500px;
     padding: 0;
     margin: 0;
 }
 
 #container ul li {
-    width:480px;
+    width: 500px;
     text-align: center;
     list-style: none;
+    display: inline;
     float:	left;
 }

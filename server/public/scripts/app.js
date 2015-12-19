@@ -3,7 +3,8 @@ $(document).ready(function(){
 
     //first sad attempt at a carousel effect... with interesting results.
     var t = setInterval(function(){
-        $(".person").animate({marginLeft:-480},1000,function(){
+
+        $("#container ul").animate({marginLeft:-480},1000,function(){
             $(this).find("li:last").after($(this).find("li:first"));
             $(this).css({marginLeft:0});
         })
