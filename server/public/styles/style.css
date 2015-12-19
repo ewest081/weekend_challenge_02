@@ -20,6 +20,24 @@ body {
     /*height: 200px;*/
 /*}*/
 
+button {
+    margin: 10px;
+}
+
+.button-container {
+    width: 500px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.previous {
+    float: left;
+}
+
+.next {
+    float: right;
+}
+
 
 .person, .title-container {
     background-color: white;
