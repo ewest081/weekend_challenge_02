@@ -3,35 +3,17 @@ body {
     margin: 0 auto;
 }
 
-/*.index-point {*/
-    /*width: 25px;*/
-    /*height: 25px;*/
-    /*background-color: #dad5d2;*/
-    /*border: 1px solid black;*/
-    /*float: left;*/
-    /*display: inline-block;*/
-/*}*/
-
-/*.index-point-active {*/
-    /*background-color: #ee100d;*/
-/*}*/
-
-/*.person-shoutout {*/
-    /*height: 200px;*/
-/*}*/
-
 button {
     height: 50px;
     width: 50px;
-    background-color: pink;
-    color: white;
+    background-color: white;
     margin: 10px;
     border: none;
     border-radius: 10px;
 }
 
-.button-container {
-    width: 500px;
+.button-holder {
+    width: 640px;
     margin: 0 auto;
     text-align: center;
 }
@@ -43,7 +25,6 @@ button {
 .next {
     float: right;
 }
-
 
 .person, .title-container {
     background-color: white;
@@ -61,8 +42,6 @@ button {
     /*float: left;*/
     /*display: inline;*/
 /*}*/
-
-/*below is the css to work with the demo carousel I found*/
 
 #container {
     margin: 0 auto;

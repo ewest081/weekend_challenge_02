@@ -1,14 +1,14 @@
 var nextArrow = '\u2192';
 var prevArrow = '\u2190';
+var interval;
 
 $(document).ready(function(){
     getData();
     buttonMaker();
+    intervalTimer();
 
     $('.button-holder').on('click', '.previous', clickPrevious);
     $('.button-holder').on('click', '.next', clickNext);
-
-    intervalTimer();
 
 });
 
@@ -43,22 +43,23 @@ function logData(data){
 
 //Below is the interval timer to move the carousel effect.
 var intervalTimer = function(){
-    setInterval(function(){
 
-        //This one would cause a slide out left effect. Not what the "client" specified upon further inspection of the directions.
-        //$("#container ul").animate({marginLeft:-480},1000,function(){
-        //    $(this).find("li:last").after($(this).find("li:first"));
-        //    $(this).css({marginLeft:0});
-        //})
+        interval = setInterval(function () {
 
-        //This is the fade out - change - fade in interval, looping back to the start.
-        $('#container ul').fadeOut(500,function(){
-            $(this).find("li:last").after($(this).find("li:first"))
-        });
-        $('#container ul').fadeIn(500,function(){
-        });
+            //This one would cause a slide out left effect. Not what the "client" specified upon further inspection of the directions.
+            //$("#container ul").animate({marginLeft:-480},1000,function(){
+            //    $(this).find("li:last").after($(this).find("li:first"));
+            //    $(this).css({marginLeft:0});
+            //})
+
+            //This is the fade out - change - fade in interval, looping back to the start.
+            $('#container ul').fadeOut(500, function () {
+                $(this).find("li:last").after($(this).find("li:first"))
+            });
+            $('#container ul').fadeIn(500, function () {
+            });
 //10 second interval
-    },10000);
+        }, 10000);
 };
 
 //function for what happens when you click "previous"
@@ -81,8 +82,10 @@ function clickNext(){
     resetTimer();
 }
 
-//function to reset the timers on click
+//function to reset the timers on clicking a button that calls it
 function resetTimer(){
-    clearInterval(intervalTimer);
+    clearInterval(interval);
+    intervalTimer();
+    console.log("Reset, dammit!")
 }
 
