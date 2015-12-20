@@ -1,7 +1,9 @@
+//Global Variables
+var interval;
 var nextArrow = '\u2192';
 var prevArrow = '\u2190';
-var interval;
 
+//Document ready and event listeners
 $(document).ready(function(){
     getData();
     buttonMaker();
@@ -9,6 +11,7 @@ $(document).ready(function(){
 
     $('.button-holder').on('click', '.previous', clickPrevious);
     $('.button-holder').on('click', '.next', clickNext);
+    //$('.dots-holder').on('click',??? , jumpTo);
 
 });
 
@@ -22,6 +25,7 @@ function getData(){
         success: function(people){
             data = people;
             logData(data);
+            //createDots(data);
         }
     });
 }
@@ -31,6 +35,18 @@ function buttonMaker(){
     $('.button-holder').append('<button class="previous">' + prevArrow + '</button>');
     $('.button-holder').append('<button class="next">' + nextArrow + '</button>');
 }
+
+//function to create dot-buttons to show where in the carousel we are... if I get that far (called in getData)
+//function createDots(data){
+//    for(i=0; i<data.people.length; i++){
+//        $('.dots-holder').append('<button class="dot ' + i + '"></button>');
+//    }
+//}
+//
+//function jumpTo(){
+//    dotNum = $(this).attr("id");
+//}
+
 
 //Function to append dom with divs containing the theta info from data.people. Also the longest line of code i've ever writen.
 function logData(data){
@@ -86,6 +102,5 @@ function clickNext(){
 function resetTimer(){
     clearInterval(interval);
     intervalTimer();
-    console.log("Reset, dammit!")
 }
 

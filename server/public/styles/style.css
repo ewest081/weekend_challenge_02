@@ -63,3 +63,17 @@ button {
     display: inline;
     float:	left;
 }
+
+.dots-holder {
+    width: 500px;
+    margin: 10px auto;
+}
+
+.dot {
+    width: 12px;
+    height: 12px;
+    background-color: white;
+    border-radius: 5px;
+    margin: 5.5px;
+    display: inline;
+}
