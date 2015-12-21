@@ -12,6 +12,10 @@ button {
     border-radius: 10px;
 }
 
+button:hover {
+    background-color: #888888;
+}
+
 .button-holder {
     width: 640px;
     margin: 0 auto;
@@ -30,18 +34,13 @@ button {
     background-color: white;
     padding: 5px;
     width: 500px;
+    border-radius: 5px;
 }
 
 .title-container {
     margin: 10px auto;
     text-align: center;
 }
-
-/*.person {*/
-    /*margin: 10px;*/
-    /*float: left;*/
-    /*display: inline;*/
-/*}*/
 
 #container {
     margin: 0 auto;
@@ -67,6 +66,8 @@ button {
 .dots-holder {
     width: 500px;
     margin: 10px auto;
+    display: flex;
+    justify-content: space-between;
 }
 
 .dot {
@@ -74,6 +75,5 @@ button {
     height: 12px;
     background-color: white;
     border-radius: 5px;
-    margin: 5.5px;
-    display: inline;
+    margin: 5px auto;
 }
