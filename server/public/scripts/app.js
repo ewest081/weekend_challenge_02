@@ -3,8 +3,6 @@ var interval;
 var nextArrow = '\u2192';
 var prevArrow = '\u2190';
 
-
-
 //Document ready and event listeners
 $(document).ready(function(){
     init();
@@ -48,67 +46,61 @@ function buttonMaker(){
 //function to create dot-buttons to show where in the carousel we are... if I get that far (called in getData)
 function createDots(data){
     for(i=0; i<data.people.length; i++){
-        $('.dots-holder').append('<button class="dot" id="' + i + '"></button>');
+        $('.dots-holder').append('<button class="dot" id="' + i + '" data-dotID="' + i + '"></button>');
     }
+    $('.dots-holder').children().first().addClass('highlighted')
 }
-
-//Function to allow dot buttons to jump to the person with specified index #
-function jumpTo(){
-    dotNum = $(this).attr("id");
-
-    //Somehow access the index number on the button ID...
-    //Use it to somehow jump to the desired person...
-    //I'll get there someday... maybe.
-
-    console.log("dotNUM: " + dotNum);
-    resetTimer();
-};
 
 //Function to append dom with divs containing the theta info from data.people. Also the longest line of code i've ever writen.
 function logData(data){
     for(i=0; i<data.people.length; i++) {
+        $('#container').append('<div class="person ' + i + '" data-id="' + i + '">');
+        var $el = $('#container').children().last();
 
-        $('#container').children().append('<li><div class="person ' + i + '"><p class="person-name">Name: ' + data.people[i].name + '</p><p class="person-location">City: ' + data.people[i].location + '</p><p class="person-animal">Spirit Animal: ' + data.people[i].animal + '</p></div></li>');
+        $el.append('<p class="person-name">Name: ' + data.people[i].name + '</p>');
+        $el.append('<p class="person-name">Location: ' + data.people[i].location + '</p>');
+        $el.append('<p class="person-name">Spirit Animal: ' + data.people[i].animal + '</p></div>');
+
+        //$el.append giphy api thing for data.people[i].animal as the input
+
+        $el.hide();
     }
+    $('#container').children().first().show();
+    $('#container').children().first().addClass('visible');
 }
 
 //Below is the interval timer to move the carousel effect.
-var intervalTimer = function(){
+intervalTimer = function(){
         interval = setInterval(function () {
-
-            //This one would cause a slide out left effect. Not what the "client" specified upon further inspection of the directions.
-            //$("#container ul").animate({marginLeft:-480},1000,function(){
-            //    $(this).find("li:last").after($(this).find("li:first"));
-            //    $(this).css({marginLeft:0});
-            //})
-
-            //This is the fade out - change - fade in interval, looping back to the start.
-            $('#container ul').fadeOut(500, function () {
-                $(this).find("li:last").after($(this).find("li:first"))
-            });
-            $('#container ul').fadeIn(500, function () {
-            });
+            clickNext();
 //10 second interval
         }, 10000);
 };
 
-//function for what happens when you click "previous"
-function clickPrevious(){
-    $('#container ul').fadeOut(500,function(){
-        $(this).find("li:first").before($(this).find("li:last"))
-    });
-    $('#container ul').fadeIn(500,function(){
-    });
+//function for what happens when you click "next"
+function clickNext(){
+
+    $('.visible').fadeOut().removeClass('visible').next().fadeIn().addClass('visible');
+    $('#container').find("div:last").after($('#container').find("div:first"));
+    $('.highlighted').removeClass('highlighted').next().addClass('highlighted');
     resetTimer();
 }
 
-//function for what happens when you click "next"
-function clickNext(){
-    $('#container ul').fadeOut(500,function(){
-        $(this).find("li:last").after($(this).find("li:first"))
-    });
-    $('#container ul').fadeIn(500,function(){
-    });
+//function for what happens when you click "previous"
+function clickPrevious(){
+    $('#container').find("div:first").before($('#container').find("div:last"));
+    $('.visible').fadeOut().removeClass('visible').prev().fadeIn().addClass('visible');
+    $('.highlighted').removeClass('highlighted').prev().addClass('highlighted');
+
+    resetTimer();
+}
+
+//Function to allow dot buttons to jump to the person with specified index #
+function jumpTo() {
+    var dotNum = $(this).attr("id");
+    $('.visible').fadeOut().removeClass('visible').parent().find('[data-id="' + dotNum + '"]').delay(400).fadeIn().addClass('visible');
+    $('.highlighted').removeClass('highlighted').parent().find('[data-dotID="' + dotNum + '"]').addClass('highlighted');
+
     resetTimer();
 }
 
