@@ -3,88 +3,109 @@
     {
       "name": "Paul",
       "location": "Saint Paul",
-      "animal" : "Turtle"
+      "animal" : "Turtle",
+      "animalSearch": "Turtle"
     },
     {
       "name": "Mark",
       "location": "Champlin",
-      "animal": "Turtle"
+      "animal": "Turtle",
+      "animalSearch": "Ninja+Turtle"
     },{
       "name": "Scott",
       "location": "Apple Valley",
-      "animal": "Dog"
+      "animal": "Dog",
+      "animalSearch": "Dog"
     },{
       "name":"Altamir",
       "location":"Minneapolis",
-      "animal":"Lion"
+      "animal":"Lion",
+      "animalSearch": "Lion"
     },{
       "name":"Zach",
       "location":"Waconia",
-      "animal":"Rabbit"
+      "animal":"Rabbit",
+      "animalSearch": "Rabbit"
     },{
       "name":"Sam",
       "location":"Richfield",
-      "animal":"Black Bear"
+      "animal":"Black Bear",
+      "animalSearch": "Black+Bear"
     },{
       "name":"Brooks",
       "location":"Minneapolis",
-      "animal":"Puma"
+      "animal":"Puma",
+      "animalSearch": "Puma"
     },{
       "name":"Eric",
       "location":"Minneapolis",
-      "animal":"Owl"
+      "animal":"Owl",
+      "animalSearch": "Owl"
     },{
       "name":"Nathan",
       "location":"Edina",
-      "animal":"Polar Bear"
+      "animal":"Polar Bear",
+      "animalSearch": "Polar+Bear"
     },{
       "name":"Amber",
       "location":"Plymouth",
-      "animal":"Baboon throwing Laptop"
+      "animal":"Baboon throwing Laptop",
+      "animalSearch": "Baboon+Throwing+Laptop"
     },{
       "name":"Liz",
       "location":"Bloomington",
-      "animal":"Wookie"
+      "animal":"Wookie",
+      "animalSearch": "Chewbacca"
     },{
       "name":"Matthew",
       "location":"Bloomington",
-      "animal":"Thomson gazelle"
+      "animal":"Thomson gazelle",
+      "animalSearch": "Gazelle"
     },{
       "name":"Chris",
       "location":"Minneapolis",
-      "animal":"Moose"
+      "animal":"Moose",
+      "animalSearch": "Moose"
     },{
       "name":"Jeremy",
       "location":"Minneapolis",
-      "animal":"Phoenix"
+      "animal":"Phoenix",
+      "animalSearch": "Phoenix"
     },{
       "name":"Joseph",
       "location":"Minneapolis",
-      "animal":"Dolphin"
+      "animal":"Dolphin",
+      "animalSearch": "Dolphin"
     },{
       "name":"Scott",
       "location":"Narnia",
-      "animal":"Aye-aye"
+      "animal":"Aye-aye",
+      "animalSearch": "Aye+Aye"
     },{
       "name":"Kenzie",
       "location":"Inver Grove Heights",
-      "animal":"Snow Leopard"
+      "animal":"Snow Leopard",
+      "animalSearch": "Snow+Leopard"
     },{
       "name":"Natalie",
       "location":"Minneapolis",
-      "animal":"Kittyfoofoo"
+      "animal":"Kittyfoofoo",
+      "animalSearch": "Kitty+Foo"
     },{
       "name":"Anthony",
       "location":"Minneapolis",
-      "animal":"Otter"
+      "animal":"Otter",
+      "animalSearch": "Otter"
     }, {
       "name": "Kristy",
       "location": "Burnsville",
-      "animal": "Clumsy Cat"
+      "animal": "Clumsy Cat",
+      "animalSearch": "Clumsy+Cat"
     }, {
       "name": "Charlie",
       "location": "Bloomington",
-      "animal": "Puppy"
+      "animal": "Puppy",
+      "animalSearch": "Puppy"
     }
   ]
 }
