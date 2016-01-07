@@ -89,3 +89,14 @@ img {
 .highlighted {
     background-color: #888888;
   }
+
+.warning {
+    width: 500px;
+    margin: 0 auto;
+}
+
+.warning p {
+    font-size: 8pt;
+    text-align: center;
+    color: white;
+}

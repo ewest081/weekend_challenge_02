@@ -94,7 +94,7 @@ animalGif = function(data){
                 var random = randomNumber();
                 var displayGif = response.data[random].images.fixed_width.url;
 
-                $('.pictures').append('<img class="gif' + i + '" src="' + displayGif + '" style="height:90px;"/>');
+                $('.pictures').append('<img class="gif' + i + '" src="' + displayGif + '" style="height:90px;"  data-gifID="' + i + '"/>');
                 $('.pictures').children().hide();
                 $('.pictures').children().first().show();
                 $('.pictures').children().first().addClass('shown');
@@ -117,6 +117,8 @@ function clickNext(){
     $('#container').find("div:last").after($('#container').find("div:first"));
     $('.highlighted').removeClass('highlighted').next().addClass('highlighted');
     $('.shown').fadeOut().removeClass('shown').next().fadeIn(500).addClass('shown');
+    $('.images').find("img:last").after($('.images').find("img:first"));
+
 
     index++;
     looper();
@@ -140,7 +142,7 @@ function jumpTo() {
     var dotNum = $(this).attr("id");
     $('.visible').fadeOut().removeClass('visible').parent().find('[data-id="' + dotNum + '"]').delay(400).fadeIn().addClass('visible');
     $('.highlighted').removeClass('highlighted').parent().find('[data-dotID="' + dotNum + '"]').addClass('highlighted');
-    $('.shown').removeClass('shown').parent().find('[data-dotID="' + dotNum + '"]').addClass('shown');
+    $('.shown').fadeOut().removeClass('shown').parent().find('[data-gifID="' + dotNum + '"]').fadeIn().addClass('shown');
 
     index = dotNum;
     resetTimer();
@@ -151,14 +153,14 @@ function looper(){
     if(index > maxID){
         $('.highlighted').removeClass('highlighted');
         $('#0').addClass('highlighted');
-        $('.shown').removeClass('shown');
-        $('.gif0').addClass('highlighted');
+        $('.shown').fadeOut().removeClass('shown');
+        $('.gif0').fadeIn().addClass('highlighted');
         index = 0;
     }else if(index < 0){
         $('.highlighted').removeClass('highlighted');
         $('.dots-holder').children().last().addClass('highlighted');
-        $('.shown').removeClass('shown');
-        $('.pictures').children().last().addClass('shown');
+        $('.shown').fadeOut().removeClass('shown');
+        $('.pictures').children().last().fadeIn().addClass('shown');
         index = 20;
     }
 }

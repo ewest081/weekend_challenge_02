@@ -5,12 +5,6 @@
       "location": "Saint Paul",
       "animal" : "Turtle",
       "animalSearch": "Turtle"
-    },
-    {
-      "name": "Mark",
-      "location": "Champlin",
-      "animal": "Turtle",
-      "animalSearch": "Ninja+Turtle"
     },{
       "name": "Scott",
       "location": "Apple Valley",
@@ -35,12 +29,17 @@
       "name":"Brooks",
       "location":"Minneapolis",
       "animal":"Puma",
-      "animalSearch": "Puma"
+      "animalSearch": "cougar"
     },{
       "name":"Eric",
       "location":"Minneapolis",
       "animal":"Owl",
       "animalSearch": "Owl"
+    },{
+      "name": "Mark",
+      "location": "Champlin",
+      "animal": "Turtle",
+      "animalSearch": "Ninja+Turtle"
     },{
       "name":"Nathan",
       "location":"Edina",
@@ -70,7 +69,7 @@
       "name":"Jeremy",
       "location":"Minneapolis",
       "animal":"Phoenix",
-      "animalSearch": "Phoenix"
+      "animalSearch": "flames"
     },{
       "name":"Joseph",
       "location":"Minneapolis",
