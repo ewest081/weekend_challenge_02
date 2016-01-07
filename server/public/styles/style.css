@@ -1,5 +1,5 @@
 body {
-    background-color: red;
+    background-color: green;
     margin: 0 auto;
 }
 
@@ -17,8 +17,7 @@ button:hover {
 }
 
 img {
-    float: right;
-    display: inline;
+    margin: 3px auto;
 }
 
 .button-holder {
@@ -47,22 +46,33 @@ img {
 #container {
     background-color: white;
     border-radius: 5px;
-    margin: 0 auto;
+    margin: 5px auto;
     width: 500px;
     height: 100px;
     overflow: hidden;
     text-align: left;
-    display: inline;
-    float:	left;
+    /*display: inline;*/
+    /*float:	left;*/
 }
 
 .person {
     padding: 5px;
-    width: 200px;
+    width: 500px;
+}
+
+.pictures {
+    margin: 10px auto;
+    background-color: white;
+    border-radius: 10px;
+    width: 500px;
+    height: 100px;
+    display: flex;
+    justify-content: space-between;
 }
 
 .dots-holder {
     width: 500px;
+    height: 20px;
     margin: 10px auto;
     display: flex;
     justify-content: space-between;

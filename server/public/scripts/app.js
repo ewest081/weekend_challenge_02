@@ -27,15 +27,15 @@ function enable(){
 //get data function we were given.
 function getData(){
     var data={};
-
     $.ajax({
         type: "GET",
         url:"/data",
         success: function(people){
             data = people;
+
             logData(data);
+            animalGif(data);
             createDots(data);
-            animalSearch(data);
         }
     });
 }
@@ -56,6 +56,7 @@ function createDots(data){
 
 //Function to append dom with divs containing the theta info from data.people.
 function logData(data){
+
     for(i=0; i<data.people.length; i++) {
         $('#container').append('<div class="person ' + i + '" data-id="' + i + '">');
 
@@ -75,21 +76,32 @@ function logData(data){
     index = 0;
 }
 
-function animalSearch(data){
-    //animal = data.people.animalSearch;
-    //for(i=0; i < data.people.length; i++) {
-    //    $.ajax("http://api.giphy.com/v1/gifs/search?q=" + animal + "&limit=1&api_key=dc6zaTOxFJmzC")
-    //        .then(function (response) {
-    //            console.log(response);
-    //            var animal = response;
-    //
-    //            var $animalgif = '<img src="' + animal.embed_url + '" </img>';
-    //
-    //            $("").html($animalgif);
-    //
-    //        })
-    //}
+//random number function used in animalGif to pull a random giphy from the API data returned
+function randomNumber() {
+    var min = 0;
+    var max = 24;
+        return Math.floor(Math.random() * (1 + max - min) + min);
 }
+
+//function that pulls data from the giphi api and appends it into a new container for the images
+animalGif = function(data){
+    setTimeout(function () {
+        for (i = 0; i < data.people.length; i++) {
+
+            var animalGiphy = data.people[i].animalSearch;
+            var urlData = "http://api.giphy.com/v1/gifs/search?q=" + animalGiphy + "&api_key=dc6zaTOxFJmzC";
+            $.ajax(urlData).then(function (response) {
+                var random = randomNumber();
+                var displayGif = response.data[random].images.fixed_width.url;
+
+                $('.pictures').append('<img class="gif' + i + '" src="' + displayGif + '" style="height:90px;"/>');
+                $('.pictures').children().hide();
+                $('.pictures').children().first().show();
+                $('.pictures').children().first().addClass('shown');
+            });
+        }
+    },1500)
+};
 
 //Below is the interval timer to move the carousel effect.
 intervalTimer = function(){
@@ -101,11 +113,10 @@ intervalTimer = function(){
 
 //function for what happens when you click "next"
 function clickNext(){
-
-
     $('.visible').fadeOut().removeClass('visible').next().fadeIn().addClass('visible');
     $('#container').find("div:last").after($('#container').find("div:first"));
     $('.highlighted').removeClass('highlighted').next().addClass('highlighted');
+    $('.shown').fadeOut().removeClass('shown').next().fadeIn(500).addClass('shown');
 
     index++;
     looper();
@@ -117,6 +128,7 @@ function clickPrevious(){
     $('#container').find("div:first").before($('#container').find("div:last"));
     $('.visible').fadeOut().removeClass('visible').prev().fadeIn().addClass('visible');
     $('.highlighted').removeClass('highlighted').prev().addClass('highlighted');
+    $('.shown').fadeOut().removeClass('shown').prev().fadeIn().addClass('shown');
 
     index--;
     looper();
@@ -128,6 +140,7 @@ function jumpTo() {
     var dotNum = $(this).attr("id");
     $('.visible').fadeOut().removeClass('visible').parent().find('[data-id="' + dotNum + '"]').delay(400).fadeIn().addClass('visible');
     $('.highlighted').removeClass('highlighted').parent().find('[data-dotID="' + dotNum + '"]').addClass('highlighted');
+    $('.shown').removeClass('shown').parent().find('[data-dotID="' + dotNum + '"]').addClass('shown');
 
     index = dotNum;
     resetTimer();
@@ -138,10 +151,14 @@ function looper(){
     if(index > maxID){
         $('.highlighted').removeClass('highlighted');
         $('#0').addClass('highlighted');
+        $('.shown').removeClass('shown');
+        $('.gif0').addClass('highlighted');
         index = 0;
     }else if(index < 0){
         $('.highlighted').removeClass('highlighted');
         $('.dots-holder').children().last().addClass('highlighted');
+        $('.shown').removeClass('shown');
+        $('.pictures').children().last().addClass('shown');
         index = 20;
     }
 }
