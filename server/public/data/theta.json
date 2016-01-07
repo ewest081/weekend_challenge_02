@@ -50,7 +50,7 @@
       "name":"Amber",
       "location":"Plymouth",
       "animal":"Baboon throwing Laptop",
-      "animalSearch": "Baboon+Throwing+Laptop"
+      "animalSearch": "baboon"
     },{
       "name":"Liz",
       "location":"Bloomington",
@@ -90,7 +90,7 @@
       "name":"Natalie",
       "location":"Minneapolis",
       "animal":"Kittyfoofoo",
-      "animalSearch": "Kitty+Foo"
+      "animalSearch": "Kitty"
     },{
       "name":"Anthony",
       "location":"Minneapolis",
@@ -100,7 +100,7 @@
       "name": "Kristy",
       "location": "Burnsville",
       "animal": "Clumsy Cat",
-      "animalSearch": "Clumsy+Cat"
+      "animalSearch": "Cat"
     }, {
       "name": "Charlie",
       "location": "Bloomington",
