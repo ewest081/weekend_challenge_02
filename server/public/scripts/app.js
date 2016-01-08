@@ -86,21 +86,24 @@ function randomNumber() {
 //function that pulls data from the giphi api and appends it into a new container for the images
 animalGif = function(data){
     setTimeout(function () {
-        for (i = 0; i < data.people.length; i++) {
+
+    for (i = 0; i < data.people.length; i++) {
 
             var animalGiphy = data.people[i].animalSearch;
-            var urlData = "http://api.giphy.com/v1/gifs/search?q=" + animalGiphy + "&api_key=dc6zaTOxFJmzC";
+            var urlData = "https://api.giphy.com/v1/gifs/search?q=" + animalGiphy + "&api_key=dc6zaTOxFJmzC";
             $.ajax(urlData).then(function (response) {
                 var random = randomNumber();
                 var displayGif = response.data[random].images.fixed_width.url;
 
-                $('.pictures').append('<img class="gif' + i + '" src="' + displayGif + '" style="height:90px;"  data-gifID="' + i + '"/>');
+                $('.pictures').append('<div class="gif ' + i + '" data-gifID="' + i + '"><img  src="' + displayGif + '" style="height:90px;"/></div>');
                 $('.pictures').children().hide();
                 $('.pictures').children().first().show();
                 $('.pictures').children().first().addClass('shown');
+
+                console.log(displayGif)
             });
         }
-    },1500)
+    },1000)
 };
 
 //Below is the interval timer to move the carousel effect.
@@ -117,8 +120,7 @@ function clickNext(){
     $('#container').find("div:last").after($('#container').find("div:first"));
     $('.highlighted').removeClass('highlighted').next().addClass('highlighted');
     $('.shown').fadeOut().removeClass('shown').next().fadeIn(500).addClass('shown');
-    $('.images').find("img:last").after($('.images').find("img:first"));
-
+    $('.images').find("div:last").after($('.images').find("div:first"));
 
     index++;
     looper();
@@ -131,6 +133,7 @@ function clickPrevious(){
     $('.visible').fadeOut().removeClass('visible').prev().fadeIn().addClass('visible');
     $('.highlighted').removeClass('highlighted').prev().addClass('highlighted');
     $('.shown').fadeOut().removeClass('shown').prev().fadeIn().addClass('shown');
+    $('.images').find("div:first").before($('.images').find("div:last"));
 
     index--;
     looper();
@@ -153,14 +156,14 @@ function looper(){
     if(index > maxID){
         $('.highlighted').removeClass('highlighted');
         $('#0').addClass('highlighted');
-        $('.shown').fadeOut().removeClass('shown');
-        $('.gif0').fadeIn().addClass('highlighted');
+        //$('.shown').fadeOut().removeClass('shown');
+        //$('.gif 0').fadeIn().addClass('highlighted');
         index = 0;
     }else if(index < 0){
         $('.highlighted').removeClass('highlighted');
         $('.dots-holder').children().last().addClass('highlighted');
-        $('.shown').fadeOut().removeClass('shown');
-        $('.pictures').children().last().fadeIn().addClass('shown');
+        //$('.shown').fadeOut().removeClass('shown');
+        //$('.pictures').children().last().fadeIn().addClass('shown');
         index = 20;
     }
 }
